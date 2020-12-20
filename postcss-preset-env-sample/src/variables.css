@@ -1,0 +1,27 @@
+:root {
+    /* color */ 
+    --color-brand: #ffffff;
+    --background-color-brand: #333;
+
+    /* space */
+    --space-l: 24px;
+    --space-m: 20px;
+    --space-s: 16px;
+}
+
+
+/* Extends  */
+%error {
+    border: 1px #f00;
+    background-color: #fdd;
+}
+
+%thick-border {
+    border: thick dotted red;
+  }
+  
+.modal {
+    @extend %thick-border;
+
+    color: red;
+}

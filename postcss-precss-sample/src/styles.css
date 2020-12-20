@@ -1,0 +1,208 @@
+@import './variables.css'; 
+
+body {
+    color: var(--color-brand);
+    margin: var(--space-l)
+}
+
+div {
+    & p {
+        color: var(--color-brand);
+        background-color: var(--background-color-brand);
+        margin: var(--space-m)
+    }
+
+    /*
+   &  a {
+        all: initial;
+      }
+    */
+
+    & a {
+        break-inside: avoid;
+        break-before: avoid-column;
+        break-after: always;
+      }
+}
+
+h2 {
+    font-variant: small-caps;
+  }
+
+
+
+  .grid-1 {
+    gap: 20px;
+  }
+  
+  .grid-2 {
+    column-gap: 40px;
+    row-gap: 20px;
+  }
+
+  @media (width < 480px) {
+      body {
+          background: green
+      }
+  }
+
+@media (480px <= width < 768px) {
+    body {
+        background: saddlebrown
+    }
+}
+
+@media (width >= 768px) {
+    body {
+        background: #fabada
+    }
+}
+
+section {
+    background-color: #f3f3f3f3;
+    color: #0003;
+  }
+
+  p {
+  background-image: image-set(
+    "foo.png" 1x,
+    "foo-2x.png" 2x,
+    "foo-print.png" 600dpi
+  );
+}
+
+.example {
+    place-content: flex-end;
+    place-items: center / space-between;
+    place-self: flex-start / center;
+  }
+
+
+/* Sass */
+.menu {
+  width: calc(4 * $column);
+}
+
+.menu_link {
+  background: $blue;
+  width: $column;
+}
+
+%thick-border {
+  border: thick dotted red;
+}
+
+.serious-modal {
+  font-style: normal;
+  font-weight: bold;
+
+  @media (max-width: 240px) {
+    @extend .modal:hover;
+  }
+}
+
+.modal {
+  @extend %thick-border;
+
+  color: red;
+}
+
+.modal:hover:not(:focus) {
+  outline: none;
+}
+
+
+div {
+  p {
+    color: red;
+  }
+}
+
+
+div {
+  & p {
+    color: red;
+  }
+}
+
+/* PostCSS Advanced Variables */ 
+
+/* variables */
+$font-size:     1.25em;
+$font-stack:    "Helvetica Neue", sans-serif;
+$primary-color: #333;
+
+body {
+  font: $font-size $(font-stack);
+  color: #{$primary-color};
+}
+/* conditionals: @if, @elses */ 
+$type: monster;
+
+p {
+  @if $type == ocean {
+    color: blue;
+  } @else {
+    color: black;
+  }
+}
+
+/* Loops: @for, @each */
+@for $i from 1 through 5 by 2 {
+  .width-#{$i} {
+    width: #{$i}0em;
+  }
+}
+
+@for $j from 1 to 5 by 2 {
+  .height-#{$j} {
+    height: #{$j}0em;
+  }
+}
+
+$dir: assets/icons;
+
+@each $icon in (foo, bar, baz) {
+  .icon-$icon {
+    background: url('$dir/$icon.png');
+  }
+}
+
+@for $count from 1 to 5 by 2 {
+  @if $count > 2 {
+    .col-$count {
+      width: #{$count}0%;
+    }
+  }
+}
+
+/* @mixin, @include, @content */
+@mixin heading-text {
+  color: #242424;
+  font-size: 4em;
+}
+
+h1, h2, h3 {
+  @include heading-text;
+}
+
+/* Extend */
+
+.serious-modal {
+  font-style: normal;
+  font-weight: bold;
+
+  @media (max-width: 240px) {
+    @extend .modal:hover;
+  }
+}
+
+.modal {
+  @extend %thick-border;
+
+  color: red;
+}
+
+.modal:hover:not(:focus) {
+  outline: none;
+}

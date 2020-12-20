@@ -1,0 +1,84 @@
+body {
+    color: var(--color-brand);
+    margin: var(--space-l)
+}
+
+div {
+    & p {
+        color: var(--color-brand);
+        background-color: var(--background-color-brand);
+        margin: var(--space-m)
+    }
+
+    /*
+   &  a {
+        all: initial;
+      }
+    */
+
+    & a {
+        break-inside: avoid;
+        break-before: avoid-column;
+        break-after: always;
+      }
+}
+
+h2 {
+    font-variant: small-caps;
+  }
+
+
+
+  .grid-1 {
+    gap: 20px;
+  }
+  
+  .grid-2 {
+    column-gap: 40px;
+    row-gap: 20px;
+  }
+
+  @media (width < 480px) {
+      body {
+          background: green
+      }
+  }
+
+@media (480px <= width < 768px) {
+    body {
+        background: saddlebrown
+    }
+}
+
+@media (width >= 768px) {
+    body {
+        background: #fabada
+    }
+}
+
+section {
+    background-color: #f3f3f3f3;
+    color: #0003;
+  }
+
+
+.example {
+    place-content: flex-end;
+    place-items: center / space-between;
+    place-self: flex-start / center;
+  }
+
+/* Sass  Style */
+
+p.error {
+  @extend %error;
+}
+
+.serious-modal {
+  font-style: normal;
+  font-weight: bold;
+
+  @media (max-width: 240px) {
+    @extend .modal;
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "postcss-preset-env-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "css": "postcss src/styles.css -o dist/styles/main.css",
+    "css:watch": "postcss src/styles.css -o dist/styles/main.css -w --verbose",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "postcss": "8.2.1",
+    "postcss-cli": "8.3.1",
+    "postcss-extend-rule": "3.0.0",
+    "postcss-import": "14.0.0",
+    "postcss-inject": "1.0.2",
+    "postcss-preset-env": "6.7.0"
+  }
+}

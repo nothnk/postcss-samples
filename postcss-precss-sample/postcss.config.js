@@ -1,5 +1,4 @@
 const precss = require('precss');
-const postCSSAdvancedVariables = require('postcss-advanced-variables');
 const path = require('path');
 
 
